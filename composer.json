@@ -1,0 +1,23 @@
+{
+  "name": "aanderson/'PHP II'/PHP-Auction/",
+  "description": "Auction App",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Abel Anderson",
+      "email": "W0722082@myscc.ca"
+    }
+  ],
+  "require": {
+    "ext-PDO": "*",
+    "ext-curl": "*"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/",
+      "Tests\\": "tests/"
+    }
+  }
+}
