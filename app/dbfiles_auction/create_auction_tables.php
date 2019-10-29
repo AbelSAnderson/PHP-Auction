@@ -6,7 +6,7 @@
 <body>
 <?php
 // Set the variables for the database access:
-require_once(__DIR__ . "/../app/bootstrap.php");
+require_once(__DIR__ . "/../../app/bootstrap.php");
 echo "<h1>Table Refresh Script</h1>";
 
 if(isset($_POST['refresh'])) {
