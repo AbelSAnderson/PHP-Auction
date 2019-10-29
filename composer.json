@@ -9,6 +9,7 @@
     }
   ],
   "require": {
+    "monolog/monolog": "*",
     "ext-PDO": "*",
     "ext-curl": "*"
   },
