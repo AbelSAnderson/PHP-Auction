@@ -34,6 +34,9 @@ class Session implements SessionHandlerInterface {
         }
     }
 
+    /**
+     *
+     */
     public function __destruct() {
         session_write_close();
     }
