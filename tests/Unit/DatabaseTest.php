@@ -13,10 +13,16 @@ use PHPUnit\Framework\TestCase;
 class DatabaseTest extends TestCase {
 	/* @var $dbConnection \App\Lib\Database */
 	protected static $dbConnection;
+	protected $mock;
 
 	public function setUp() {
 		self::$dbConnection = Database::getConnection();
 		self::$dbConnection->sqlQuery("INSERT INTO `categories` (cat) VALUES('UNIT_TEST')");
+		$this->mock = $this->getMockBuilder('Category')
+			->disableOriginalConstructor()
+			->disableOriginalClone()
+			->disableArgumentCloning()
+			->getMock();
 	}
 
 	public function tearDown() {
@@ -31,6 +37,7 @@ class DatabaseTest extends TestCase {
 		$this->assertInstanceOf(Database::class, self::$dbConnection);
 	}
 
+
 	public function testSqlQuery() {
 		$result = self::$dbConnection->sqlQuery("SELECT * FROM `categories` WHERE cat = :cat", ["cat" => "UNIT_TEST"], true);
 		$this->assertInstanceOf(PDOStatement::class, $result);
@@ -41,6 +48,16 @@ class DatabaseTest extends TestCase {
 		$result = self::$dbConnection->sqlQuery("SELECT * FROM `categories` WHERE cat = 'UNIT_TEST'");
 		$this->assertTrue($result);
 	}
+
+
+	public function testFetch() {
+		$result = self::$dbConnection->fetch("SELECT * FROM `categories` WHERE cat = :cat", get_class($this->mock), ["cat" => "UNIT_TEST"]);
+		$this->assertInternalType('array', $result);
+		$this->assertNotEmpty($result);
+		$first = $result[0];
+		$this->assertInstanceOf(get_class($this->mock), $first);
+	}
+
 
 	public function testRowCount() {
 		$result = self::$dbConnection->rowCount("SELECT * FROM `categories`;");
