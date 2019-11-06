@@ -14,7 +14,7 @@ class Image extends Model {
     /**
      * @var string
      */
-    protected static $table_name = "categories";
+    protected static $table_name = "images";
     /**
      * @var int
      */

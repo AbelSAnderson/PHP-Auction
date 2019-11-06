@@ -49,6 +49,16 @@ class Item extends Model {
     protected $notified = 0;
 
     /**
+     * @var array Images of the item
+     */
+    protected $imageObjs = [];
+
+    /**
+     * @var array Bids on the item
+     */
+    protected $bidObjs = [];
+
+    /**
      * Item constructor.
      *
      * @param $user_id
@@ -65,5 +75,15 @@ class Item extends Model {
         $this->price = $price;
         $this->description = $description;
         $this->date = $date;
+    }
+
+    public function getImages() {
+        $this->imageObjs = Image::find(["item_id" => $this->id]);
+        return $this->imageObjs;
+    }
+
+    public function getBids() {
+        $this->bidObjs = Bid::find(["item_id" => $this->id], null, "amount DESC");
+        return $this->bidObjs;
     }
 }
