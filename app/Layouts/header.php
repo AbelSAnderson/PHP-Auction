@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo CONFIG_AUCTIONNAME ?></title>
-    <link rel="stylesheet" href=<?php echo CONFIG_URL ?>"/css/stylesheet.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo CONFIG_URL ?>/css/stylesheet.css" type="text/css">
 </head>
 <body>
 <div id="header">
