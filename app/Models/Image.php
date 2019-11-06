@@ -4,11 +4,13 @@
 namespace App\Models;
 
 
+use App\Lib\Model;
+
 /**
  * Class Image
  * @package App\Models
  */
-class Image {
+class Image extends Model {
     /**
      * @var string
      */

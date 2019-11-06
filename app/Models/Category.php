@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Lib\Model;
+
 /**
  * Class Category
  * @package App\Models
  */
-class Category {
+class Category extends Model {
     /**
      * @var string
      */

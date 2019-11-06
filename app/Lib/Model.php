@@ -31,7 +31,7 @@ abstract class Model {
             $sql .= " WHERE ";
             $bindings = [];
             foreach ($cond as $key => $value) {
-                $bindings[] = "`key` = :$key";
+                $bindings[] = "`$key` = :$key";
             }
             $sql .= implode(" AND ", $bindings);
         } elseif ($cond != null) {
@@ -59,6 +59,7 @@ abstract class Model {
      * @param string|null $groupBy
      *
      * @return mixed
+     * @throws ClassException
      */
     public static function findFirst($cond = null, string $groupBy = null) {
         $objs = self::find($cond, $groupBy, null, 1);
@@ -71,6 +72,7 @@ abstract class Model {
      * @param string|null $orderBy
      *
      * @return array
+     * @throws ClassException
      */
     public static function all(string $groupBy = null, string $orderBy = null): array {
         $objs = self::find(null, $groupBy, $orderBy, null);

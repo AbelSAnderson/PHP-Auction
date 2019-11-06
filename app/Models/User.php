@@ -4,11 +4,13 @@
 namespace App\Models;
 
 
+use App\Lib\Model;
+
 /**
  * Class User
  * @package App\Models
  */
-class User {
+class User extends Model {
     /**
      * @var string
      */

@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Lib\Model;
+
 /**
  * Class Bid
  * @package App\Models
  */
-class Bid {
+class Bid extends Model {
     /**
      * @var string
      */
