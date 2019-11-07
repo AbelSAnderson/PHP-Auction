@@ -15,6 +15,14 @@ class Item extends Model {
      * @var string
      */
     protected static $table_name = "items";
+
+    /**
+     * @var array
+     */
+    public static $errorArray = array(
+        'lowprice' => "The bid entered is too low. Please enter another price.",
+        'letter' => "The value entered is not a number."
+    );
     /**
      * @var int
      */
@@ -77,11 +85,17 @@ class Item extends Model {
         $this->date = $date;
     }
 
+    /**
+     * @return array
+     */
     public function getImages() {
         $this->imageObjs = Image::find(["item_id" => $this->id]);
         return $this->imageObjs;
     }
 
+    /**
+     * @return array
+     */
     public function getBids() {
         $this->bidObjs = Bid::find(["item_id" => $this->id], null, "amount DESC");
         return $this->bidObjs;

@@ -2,7 +2,7 @@
 
 
 namespace App\Lib;
-
+use App\Exceptions\ClassException;
 
 /**
  * Trait Helper
@@ -35,5 +35,16 @@ trait Helper {
         }
 
         return false;
+    }
+
+    public static function displayError($errorCode): string {
+        if(!property_exists(get_called_class(), "errorArray")) {
+            throw new ClassException("Property doesn't exist");
+        }
+        if(array_key_exists($errorCode,static::$errorArray)) {
+            return static::$errorArray[$errorCode];
+        } else {
+            throw new ClassException("Key doesn't exist");
+        }
     }
 }
