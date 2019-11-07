@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo CONFIG_AUCTIONNAME ?></title>
-    <link rel="stylesheet" href="<?php echo CONFIG_URL ?>/public/css/stylesheet.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo CONFIG_URL ?>public/css/stylesheet.css" type="text/css">
 </head>
 <body>
 <div id="header">
@@ -16,11 +16,11 @@
 <div id="menu">
     <a href="index.php">Home</a> &bull;
     <?php
-        if($session->isLoggedIn()) {
-            echo "<a href='logout.php'>Logout</a> &bull;";
-        } else {
-            echo "<a href='login.php'>Login</a> &bull;";
-        }
+    if ($session->isLoggedIn()) {
+        echo "<a href='logout.php'>Logout</a> &bull;";
+    } else {
+        echo "<a href='login.php'>Login</a> &bull;";
+    }
     ?>
     <a href="newitem.php">New Item</a> &bull;
     <a href="processauctions.php">Process Auction</a> &bull;
@@ -28,7 +28,7 @@
 <div id="container">
     <div id="bar">
         <?php
-            require_once("bar.php");
+        require_once("bar.php");
         ?>
     </div>
     <div id="main">
