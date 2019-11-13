@@ -23,7 +23,7 @@ class User extends Model {
         'pass' => "Passwords do not match!",
         'taken' => "Username taken, please use another.",
         'no' => "Incorrect login details!",
-        'failedLogin' => "Incorrect login, please try again!"
+        'failedlogin' => "Incorrect login, please try again!"
     );
     /**
      * @var int
