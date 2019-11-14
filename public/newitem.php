@@ -14,8 +14,9 @@ if(!$session->isLoggedIn()) {
 if(isset($_POST['submit'])) {
 
     $item = new Item($session->getUser()->get('id'), $_POST['cat'], $_POST['name'], $_POST['price'], $_POST['description'], $_POST['date']);
+	$item->create();
 
-	header("Location: addimages.php?id=" . $item->get('id'));
+    header("Location: addimages.php?id=" . $item->get('id'));
 	die();
 } else {
 	require(__DIR__ . "/../app/Layouts/header.php");
