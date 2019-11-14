@@ -151,4 +151,14 @@ abstract class Model {
 
         return $names;
     }
+
+    public function delete() {
+        $db = Database::getConnection();
+        $sql = "DELETE FROM `" . static::$table_name . "`";
+        $sql .= "WHERE id = :id";
+
+        $bindVal = ['id' => $this->id];
+        $result = $db->sqlQuery($sql, $bindVal);
+        return $result;
+    }
 }
