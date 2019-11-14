@@ -16,6 +16,16 @@ class Image extends Model {
      */
     protected static $table_name = "images";
     /**
+     * @var array
+     */
+    public static $errorArray = [
+        "empty" => "You did not select anything",
+        "nophoto" => "You did not select a photo to upload",
+        "photoprob" => "There appears to be a problem with the photo your are uploading",
+        "large" => "The photo you selected is too large",
+        "invalid" => "The photo you selected is not a valid image file"
+    ];
+    /**
      * @var int
      */
     protected $id = 0;
