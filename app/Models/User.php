@@ -50,6 +50,12 @@ class User extends Model {
      */
     protected $active = 0;
 
+    /**
+     * @param $email
+     * @param $password
+     *
+     * @return bool|mixed
+     */
     public static function auth($email, $password) {
         try {
             $user = self::findFirst(['email' => $email]);

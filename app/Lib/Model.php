@@ -152,6 +152,9 @@ abstract class Model {
         return $names;
     }
 
+    /**
+     * @return bool|\PDOStatement
+     */
     public function delete() {
         $db = Database::getConnection();
         $sql = "DELETE FROM `" . static::$table_name . "`";
