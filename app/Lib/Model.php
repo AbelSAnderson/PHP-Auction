@@ -153,7 +153,7 @@ abstract class Model {
     }
 
     /**
-     * @return bool|\PDOStatement
+     * @return bool|PDOStatement
      */
     public function delete() {
         $db = Database::getConnection();
@@ -162,6 +162,26 @@ abstract class Model {
 
         $bindVal = ['id' => $this->id];
         $result = $db->sqlQuery($sql, $bindVal);
+        return $result;
+    }
+
+    /**
+     * @return bool|PDOStatement
+     */
+    public function update() {
+        $db = Database::getConnection();
+        $bindVals = static::getColumnNames();
+
+        $sql = "UPDATE `" . static::$table_name . "`";
+        $sql .= " SET ";
+        $bindings = [];
+        foreach (array_keys($bindVals) as $key) {
+            $bindings[] = "`$key` = :$key";
+        }
+        $sql .= implode(", ", $bindings);
+        $sql .= " WHERE `id` = :id";
+
+        $result = $db->sqlQuery($sql, $bindVals);
         return $result;
     }
 }

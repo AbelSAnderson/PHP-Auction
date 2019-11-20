@@ -72,11 +72,11 @@ class File {
      * @throws FileException
      */
     public function moveUploadedFile(): bool {
-        if(file_exists(FILE_UPLOADLOC . $this->name))
+        if (file_exists(FILE_UPLOADLOC . $this->name))
             throw new FileException("File already exists");
 
         $result = move_uploaded_file($this->tmp_name, FILE_UPLOADLOC . $this->name);
-        if(!$result) throw new FileException("Cannot move file");
+        if (!$result) throw new FileException("Cannot move file");
         return $result;
     }
 }

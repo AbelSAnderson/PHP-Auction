@@ -30,7 +30,8 @@ if(isset($_GET['id'])) {
 }
 
 if(!$session->isLoggedIn()) {
-    header("Location: login.php");
+    header("Location: login.php?ref=images&id=$validid");
+    die();
 }
 	
 if(isset($_POST['submit'])) {

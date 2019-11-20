@@ -58,7 +58,7 @@ if(isset($_POST['submit'])) {
 
 	if(isset($_GET['error'])) {
 		try {
-		    $errorMsg = User::$errorArray[$_GET['error']];
+		    $errorMsg = User::displayError($_GET['error']);
 
 		} catch(ClassException $e) {
 			Logger::getLogger()->error("Invalid error code: ", ['exception' => $e]);
