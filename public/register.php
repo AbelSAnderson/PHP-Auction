@@ -9,8 +9,8 @@ require_once(__DIR__ . "/../app/bootstrap.php");
 if(isset($_POST['submit'])) {
 	if($_POST['password1'] == $_POST['password2'] && !empty($_POST['password1'])) {
 
-	    $user = new User($_POST['username'], $_POST['password'], $_POST['email']);
-	    $result = $user->create();
+	    $user = new User($_POST['username'], $_POST['password1'], $_POST['email']);
+	    $result = $user->create(['email' => $_POST['email']]);
 
 		//If boolean false is returned then the username has been taken
 		if(!$result) {
