@@ -1,0 +1,17 @@
+<?php
+
+
+namespace App\Lib;
+
+use App\Exceptions\MailException;
+
+class Mail {
+    public static function sendMail(string $to, string $subject, string $body): bool {
+        $headers = 'MIMR-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-B859-1' . "\r\n";
+        $result = mail($to, $subject, $body, $headers);
+        if(!$result) throw new MailException("Internal Error: Cannot send mail");
+
+        return $result;
+    }
+}
