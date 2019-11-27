@@ -11,7 +11,9 @@
   "require": {
     "monolog/monolog": "*",
     "ext-PDO": "*",
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "paypal/rest-api-sdk-php": "*",
+    "ext-json": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.0"
