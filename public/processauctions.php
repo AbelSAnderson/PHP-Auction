@@ -101,6 +101,8 @@ Item: $itemName
 Amount: $currency $winnerAmt 
 Owner: $ownerName ($ownerEmail)  
 
+Click here to pay for your item:
+{$generateButton($item->get('id'))}
 
 It is recommended that you contact the owner of the item within 3 days.
 _WINNER_;

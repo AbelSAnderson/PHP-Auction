@@ -117,6 +117,11 @@ class Payment extends Model {
         $this->payment_date = $payment_date;
     }
 
+    /**
+     * @param int $id
+     *
+     * @return string
+     */
     public static function generatePayment(int $id): string {
         $url = CONFIG_URL . "/payment.php?id=$id";
         $PayPalButton = <<<HEREDOC_
